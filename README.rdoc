@@ -2,6 +2,9 @@
 
 Heroku link: https://youpickproject.herokuapp.com/
 
+Difficulties:
+	I'm having trouble deploying new changes to Heroku. I just get an error saying "error: failed to push some refs." I'm also developing on Windows, which seems to cause a fair share of setbacks.
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

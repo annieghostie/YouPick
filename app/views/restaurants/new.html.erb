@@ -1,0 +1,14 @@
+<h1>Restaurants#new</h1>
+<%= form_for(@restaurant) do |f| %> 
+    <div class="field">
+        <p>name</p> 
+        <%= f.text_field :name%> 
+    </div> 
+    <div class="field"> 
+    	<p>link</p> 
+    	<%= f.text_field :link%> 
+    </div> 
+    <div class="actions"> 
+    	<%= f.submit %> 
+    </div> 
+<% end %>

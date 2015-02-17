@@ -1,0 +1,10 @@
+<h1>Lists#new</h1>
+<%= form_for(@list) do |f| %> 
+    <div class="field">
+        <p>name</p> 
+        <%= f.text_field :name%> 
+    </div> 
+    <div class="actions"> 
+    	<%= f.submit %> 
+    </div> 
+<% end %>
