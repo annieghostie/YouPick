@@ -7,5 +7,5 @@
 </div>
 
 <%= link_to "edit user", edit_user_path(@user.id)%>
-<%= link_to "destory user", @user, method: :destroy %>
+<%= link_to "destory user", @user, method: :delete, data: { confirm: "You sure?" }%>
 <%= link_to "Back to Main", root_path%>
