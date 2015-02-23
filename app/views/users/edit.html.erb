@@ -1,3 +1,4 @@
+<h1>Users#edit</h1>
 <h1>&nbsp;Users#new</h1>
 <%= form_for(@user) do |f| %>
     <div class="field">
@@ -5,12 +6,12 @@
         &nbsp;&nbsp;<%= f.text_field :name%>
     </div>
     <div class="field">
-        <p>&nbsp;&nbsp;email</p>
-        &nbsp;&nbsp;<%= f.text_field :email%>
+    	<p>&nbsp;&nbsp;email</p>
+    	&nbsp;&nbsp;<%= f.text_field :email%>
     </div>
     <div class="field">
-        <p>&nbsp;&nbsp;password</p>
-        &nbsp;&nbsp;<%= f.text_field :password%>
+    	<p>&nbsp;&nbsp;password</p>
+    	&nbsp;&nbsp;<%= f.text_field :password%>
     </div>
 
     <div style="margin: 9px">
@@ -20,6 +21,6 @@
     <br>
 
     <div class="actions">
-        &nbsp;&nbsp;<%=f.submit%>
+    	&nbsp;&nbsp;<%=f.submit%>
     </div>
 <% end %>
