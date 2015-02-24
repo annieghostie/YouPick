@@ -6,5 +6,5 @@
 </div>
 
 <%= link_to "edit restaurant", edit_restaurant_path(@restaurant.id)%>
-<%= link_to "destory restaurant", @restaurant, method: :delete %>
+<%= button_to "destory restaurant", @restaurant, method: :delete %>
 <%= link_to "Back to Main", root_path%>
