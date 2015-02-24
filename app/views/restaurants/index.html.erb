@@ -6,8 +6,11 @@
 	</tr> 
 	<% @restaurants.each do |restaurant| %> 
 		<tr> 
-			<td><%= restaurant.name %></td> 
+			<td> <%= link_to restaurant.name, restaurant_path(restaurant.id)%></td> 
 			<td><%= restaurant.link %></td> 
 		</tr> 
 	<% end %> 
 </table>
+
+<%= link_to "Add new restaurant", new_restaurant_path%>
+<%= link_to "Back to Main", root_path%>
