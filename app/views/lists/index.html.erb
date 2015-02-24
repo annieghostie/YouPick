@@ -5,7 +5,7 @@
 	</tr> 
 	<% @lists.each do |list| %> 
 		<tr> 
-			<td><%= list.name %></td> 
+			<td> <%= link_to list.name, list_path(list.id)%></td>
 		</tr> 
 	<% end %> 
 </table>
