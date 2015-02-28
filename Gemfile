@@ -10,6 +10,9 @@ end
 group :production do
   gem 'pg'
 end
+
+# Use for authentication
+gem 'devise', '~> 3.4.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
