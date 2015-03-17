@@ -11,6 +11,12 @@ group :production do
   gem 'pg'
 end
 
+gem 'mail'
+
+group :development do
+	gem 'letter_opener', github: 'ryanb/letter_opener'
+end
+
 # Use for authentication
 gem 'devise', '~> 3.4.0'
 # Use SCSS for stylesheets
