@@ -2,6 +2,11 @@
 
 <p> Welcome to my app! </p>
 
+<p> Most recent user: </p>
+<% user = User.order("created_at").last %>
+<p> <%= user.email %> </p>
+
+
 <%= link_to "Users Page", users_path%>
 <%= link_to "Restaurants Page", restaurants_path%>
 <%= link_to "Lists Page", lists_path%>
