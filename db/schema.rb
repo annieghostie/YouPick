@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303032028) do
+ActiveRecord::Schema.define(version: 20150404203640) do
 
   create_table "lists", force: :cascade do |t|
     t.string   "name"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20150303032028) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
     t.string   "string"
     t.string   "password"
     t.string   "list"
