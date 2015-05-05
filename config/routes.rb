@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'main#index'
+  post '/search' => 'main#search'
+  get '/picklist' => 'main#picklist'
+  post '/addrestaurant' => 'restaurants#create'
   
   resources :lists, :restaurants
 

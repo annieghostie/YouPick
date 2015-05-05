@@ -2,15 +2,22 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  string     :string
-#  email      :string
-#  password   :string
-#  list       :string
-#  has_many   :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                     :integer          not null, primary key
+#  password               :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default("0"), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string
+#  last_sign_in_ip        :string
+#  name                   :string
+#  lists_id               :integer
 #
 
 class User < ActiveRecord::Base
@@ -20,4 +27,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   #validates :name, :presence=>true, :length=> {:minimum=>3}, :uniqueness=>true
   #validates :password, :presence=>true, :length=>{:minimum=>6}
+  has_many :lists, -> { order(created_at: :desc) }, :dependent => :destroy
 end

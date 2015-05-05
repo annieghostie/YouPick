@@ -11,25 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404204537) do
+ActiveRecord::Schema.define(version: 20150504230941) do
 
   create_table "lists", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "user_id"
+    t.integer  "restaurants_id"
+  end
+
+  add_index "lists", ["restaurants_id"], name: "index_lists_on_restaurants_id"
+  add_index "lists", ["user_id"], name: "index_lists_on_user_id"
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "restaurant_id"
+    t.integer  "list_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
     t.string   "link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "yelp_id"
+    t.integer  "list_id"
+    t.string   "listname"
+    t.string   "image_url"
+    t.string   "address"
+    t.string   "rating_img_url"
+    t.integer  "review_count"
   end
 
+  add_index "restaurants", ["list_id"], name: "index_restaurants_on_list_id"
+
   create_table "users", force: :cascade do |t|
-    t.string   "string"
     t.string   "password"
-    t.string   "list"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
@@ -43,9 +62,11 @@ ActiveRecord::Schema.define(version: 20150404204537) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "name"
+    t.integer  "lists_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["lists_id"], name: "index_users_on_lists_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

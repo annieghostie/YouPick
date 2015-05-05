@@ -1,12 +1,21 @@
-<h1>&nbsp;Lists#new</h1>
+<%= javascript_tag do %>
+	$(".sidebar_text a").removeClass("current");
+	$("#managelists a").addClass("current");
+<% end %>
+
+<p class="pagename">My Lists</p>
+<%= @list.errors.full_messages.first if @list.errors.any? %>
 <%= form_for(@list) do |f| %> 
-    <div class="field">
-        <p>&nbsp;&nbsp;name</p> 
-        &nbsp;&nbsp;<%= f.text_field :name%> 
+    <div class="field inline">
+        <p class="field">Name&nbsp;&nbsp;&nbsp;
+        	<%= f.text_field :name%>
+        </p> 
     </div> 
-    <div class="actions"> 
-    	&nbsp;&nbsp;<%= f.submit %> 
+    <div id="addlist" class="actions inline"> 
+    	<%= f.submit %> 
     </div> 
 <% end %>
 
-<%= link_to "Back to Main", root_path%>
+<div id="showlists" class="field">
+	<%= render "users/show"%>
+</div>

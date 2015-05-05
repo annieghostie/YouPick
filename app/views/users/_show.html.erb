@@ -1,0 +1,22 @@
+<%if current_user.lists.empty?%>
+	<p class="gray">You have no lists!</p>
+<%else%>
+	<% current_user.lists.each do |list|%>
+		<div class="list">
+			<table>
+			<th><%=list.name%></th>
+			<%if list.restaurants.empty?%>
+				<tr><td>This list is empty!</td></tr>
+			<%else%>
+				<% list.restaurants.each do |restaurant|%>
+					<tr><td><%=link_to "#{restaurant.name}", "#{restaurant.link}", target: ":_blank"%></td></tr>
+				<%end%>
+			<%end%>
+			</table>
+			<div class="deletebutton">
+				<%= button_to "Delete List", list, method: :delete, controller: "list" %>
+			</div>
+			<div class="clear"></div>
+		</div>
+	<%end%>
+<%end%>

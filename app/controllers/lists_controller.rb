@@ -5,10 +5,11 @@ class ListsController < ApplicationController
 
   def create
   	@list = List.new(list_params)
+    @list.user = current_user
   	if @list.save!
-  		redirect_to lists_path
+  		redirect_to :action => 'new'
   	else
-  		render 'new'
+  		redirect_to :action => 'new'
   	end
   end
 
@@ -44,7 +45,7 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find(params[:id])
     @list.destroy
-    redirect_to lists_path
+    redirect_to :action => 'new'
   end
 
   private

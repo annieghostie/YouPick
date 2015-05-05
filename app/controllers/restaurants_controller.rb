@@ -4,12 +4,15 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-  	@restaurant = Restaurant.new(restaurant_params)
-  	if @restaurant.save!
-  		redirect_to restaurants_path
-  	else
-  		render 'new'
-  	end
+    if Restaurant.where(:yelp_id => params[:yelp_id]).blank?
+    	@restaurant = Restaurant.new(restaurant_params)
+      @restaurant.lists << current_user.lists.where(:name => params[:listname]).first
+    	@restaurant.save
+    else
+      @restaurant = Restaurant.where(:yelp_id => params[:yelp_id]).first
+      @restaurant.lists << current_user.lists.where(:name => params[:listname]).first
+    end
+    redirect_to root_path
   end
 
   def index
@@ -42,7 +45,7 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-  	params.require(:restaurant).permit(:name, :link)
+  	params.permit(:name, :link, :yelp_id, :image_url, :address, :rating_img_url, :review_count, :listname)
   end
 
 end

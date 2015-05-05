@@ -2,8 +2,7 @@
 
 Heroku link: https://youpickproject.herokuapp.com/
 
-Difficulties:
-	I couldn't get destroy to work with link_to. It only seems to work with button_to and I don't know why.
+This app randomly recommends restaurants in your city. If you come across a restauarant you like, you can save it to a list. You can create and delete lists and choose to randomly select from a specific list.
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

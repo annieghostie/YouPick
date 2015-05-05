@@ -1,3 +1,71 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a {
+	text-decoration: none;
+}
+
+.pickresult {
+	background-color: #FFBF47;
+	border-radius: 10px;
+	width: 50%;
+	padding: 2%;
+	margin: auto;
+	margin-bottom: 2%;
+}
+
+.pickresult img{
+	float: left;
+}
+
+.ratingpic {
+	margin-left: 100px;
+}
+
+.pickresult a{
+	color: #5A77AD;
+	font-size: 18px;
+}
+
+.pickresult a:hover, a:active {
+    color: #3B578A;
+}
+
+.pickresult p {
+	font-family: Varela Round;
+	font-size: 14px;
+	color: #FFF;
+}
+
+.biz_name {
+	margin-top: 0;
+}
+
+.sidebar_text {
+	font-family: Varela Round;
+	font-size: 20px;
+	margin: 10px;
+
+	a{
+		color: #B3AC9F;
+	}
+	a:hover, a:active {
+	    color: #DEA64B;
+	}
+}
+
+#sidebar, #mainspace {
+	background-color: #FFF8E3;
+	float: left;
+	width: 20%;
+	height: 100%;
+	padding-top: 5%;
+	text-align: center;
+}
+
+#mainspace {
+	float: right;
+	width: 80%;
+	background-color: #FFF;
+}

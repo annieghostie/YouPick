@@ -1,20 +1,30 @@
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
+<% if !user_signed_in? %>
   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
 
-<h1>You Pick</h1>
+<%= javascript_tag do %>
+	$(".sidebar_text a").removeClass("current");
+	$("#pick a").addClass("current");
+<% end %>
 
-<p> Welcome to my app! </p>
-
-<p> Most recent user: </p>
-<% user = User.order("created_at").last %>
-<p> <%= user.email %> </p>
-
-
-<%= link_to "Restaurants Page", restaurants_path%>
-<%= link_to "Lists Page", lists_path%>
+<div id="location">
+	<div class="field">
+		<p>Please enter your current city: </p>
+	    <%= text_field_tag "city", nil, :id => "cityvalue" %>
+	</div>
+    <div class="actions">
+        <%= button_tag "Enter", :id => "citybutton" %>
+    </div>
+</div>
+<div id="listchoicebox" class="hide field">
+	<p class="inline">Choose from:&nbsp;&nbsp;</p>
+	<%= collection_select(:restaurant, :list_id, current_user.lists, :id, :name, {:prompt => "All results"}, {:id => "pickchoice"})%>
+</div>
+<div id="pickspace"></div>
+<div id="pickagainbox" class="hide field">
+	<p class="inline">Add to list:&nbsp;&nbsp;</p>
+	<%= collection_select(:restaurant, :list_id, current_user.lists, :id, :name, {}, {:id => "addchoice"}) %>
+	<%= button_tag "Enter", :id => "addtolistbutton" %>
+	<div><%= button_tag "Pick Again", :id => "pickagainbutton" %></div>
+</div>

@@ -3,15 +3,22 @@
 <head>
   <title>YouPick</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Varela Round">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Dosis">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<p class="notice"><%= notice %></p> 
-<p class="alert"><%= alert %></p>
+<% if user_signed_in? %>
+  <%= render "layouts/sidebar" %>
+	<div id="mainspace">
+		<%= yield %>
+	</div>
+<% else %>
+	<%= yield %>
+<% end %>
 
-<%= yield %>
 
 </body>
 </html>

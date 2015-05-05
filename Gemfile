@@ -17,6 +17,8 @@ group :development do
 	gem 'letter_opener', github: 'ryanb/letter_opener'
 end
 
+gem 'yelp', require: 'yelp'
+
 # Use for authentication
 gem 'devise', '~> 3.4.0'
 # Use SCSS for stylesheets

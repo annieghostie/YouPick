@@ -1,0 +1,16 @@
+<div id="sidebar">
+	<div id="editprofile" class="sidebar_text">
+		<%= link_to edit_user_registration_path do%>
+			<p>Hi, <%= current_user.name%></p>
+		<%end%>
+	</div>
+	<div id="pick" class="sidebar_text"> 
+		<h1><%= link_to "PICK", root_path%></h1> 
+	</div>
+	<div id="managelists" class="sidebar_text">
+		<%= link_to "Manage Lists", new_list_path%>
+	</div>
+	<div class="sidebar_text">
+		<%= link_to "Logout", destroy_user_session_path, method: :delete%>
+	</div>
+</div>
