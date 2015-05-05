@@ -123,7 +123,9 @@ $(function() {
 			cache = data['businesses'];
       if(cache.length === 0){
         alert( "No results :(" );
-        $('#location').removeClass('hide');
+        $("#location").fadeIn(500, function() { 
+              $('#location').removeClass('hide');
+          });
       }
       else{
         pick();
@@ -133,7 +135,9 @@ $(function() {
 		})
     .fail(function() {
     	alert( "Invalid city :(" );
-      $('#location').removeClass('hide');
+      $("#location").fadeIn(500, function() { 
+            $('#location').removeClass('hide');
+        });
     });
 	};
 
