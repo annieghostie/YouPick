@@ -90,6 +90,7 @@ $(function() {
       search(0);
     }
     else{
+      alert("me");
       $.get('/picklist', { name: selected }, function(data) {
         cache = [];
         cache = data['restaurants'];
